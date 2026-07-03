@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Satori: Story-led consulting for boutique hospitality</title>
+  <meta name="description" content="The best independent hotels already have the thing money can't buy. Satori helps them stop giving it away, and grow direct, higher-margin bookings." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Satori: Story-led consulting for boutique hospitality" />
+  <meta property="og:description" content="The best independent hotels already have the thing money can't buy. Satori helps them stop giving it away." />
+  <meta property="og:url" content="https://satori-destinations.com" />
+  <meta property="og:site_name" content="Satori" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Satori: Story-led consulting for boutique hospitality" />
+  <meta name="twitter:description" content="The best independent hotels already have the thing money can't buy. Satori helps them stop giving it away." />
+
+  <!-- Favicon: navy S on cream, matching the logo -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B4B8C'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-weight='600' text-anchor='middle' fill='%23F6F1E7'%3ES%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400..500,0..100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #F5EEDF;
+      --cream-deep: #EEE5D2;
+      --panel: #FCF7EC;
+      --ink: #2A231C;
+      --ink-soft: #574A3D;
+      --navy: #2B4B8C;
+      --navy-deep: #223C71;
+      --navy-tint: #AEC0E6;
+      --terracotta: #C0654B;
+      --sage: #8C9A7E;
+      --line: #E4D8C1;
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    /* Faint paper grain over the whole page. Fixed = no repaint on scroll. */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Fraunces", Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 0;
+      font-optical-sizing: auto;
+      font-variation-settings: "SOFT" 44;
+      text-wrap: balance;
+    }
+    p { margin: 0; text-wrap: pretty; }
+    a { color: inherit; }
+    em { font-style: italic; }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    /* narrow reading columns so it feels like a set page, not a dashboard */
+    .measure { max-width: 720px; margin: 0 auto; }
+    .measure-wide { max-width: 960px; margin: 0 auto; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 238, 223, 0.85);
+      backdrop-filter: saturate(140%) blur(8px);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 68px;
+      flex-wrap: wrap;
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .brand img { height: 38px; width: auto; display: block; }
+    .brand-fallback {
+      display: none;
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ---------- Buttons / links ---------- */
+    .btn {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 16.5px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 16px 32px;
+      min-height: 52px;
+      line-height: 1.35;
+      border-radius: 5px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn:hover { background: var(--navy-deep); transform: translateY(-1px); }
+    .btn--light { background: var(--cream); color: var(--ink); }
+    .btn--light:hover { background: #FFFDF8; }
+
+    .textlink {
+      display: inline-block;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 6px 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .textlink:hover { color: var(--navy); border-color: var(--navy); }
+
+    .pill {
+      background: var(--navy);
+      border: 1px solid var(--navy);
+      color: var(--cream);
+      text-decoration: none;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      padding: 10px 20px;
+      border-radius: 999px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover { background: var(--navy-deep); border-color: var(--navy-deep); }
+
+    /* ---------- Section rhythm (generous, varied, so each beat lands) ---------- */
+    section { position: relative; }
+    .pad { padding: 88px 0; }
+    .pad--beat { padding: 112px 0; }
+    .pad--tension { padding: 138px 0 130px; }
+    .pad--airy { padding: 104px 0; }
+    #work, #proof, #audit { scroll-margin-top: 84px; }
+
+    /* Small italic lead-ins that stitch beats together */
+    .lead-in {
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--navy);
+      margin-bottom: 30px;
+    }
+
+    /* Editorial display prose */
+    .display-lg {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 4.4vw, 3.05rem);
+      line-height: 1.24;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+    .display-md {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      line-height: 1.3;
+      letter-spacing: -0.012em;
+      color: var(--ink);
+    }
+    .prose-lead {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
+      line-height: 1.45;
+      letter-spacing: -0.008em;
+      color: var(--ink);
+    }
+    .display-lg em, .display-md em, .prose-lead em { color: var(--navy); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(120% 90% at 76% 6%, rgba(43, 75, 140, 0.13) 0%, rgba(43, 75, 140, 0) 55%),
+        radial-gradient(95% 80% at 10% 100%, rgba(140, 154, 126, 0.20) 0%, rgba(140, 154, 126, 0) 60%),
+        radial-gradient(70% 60% at 90% 95%, rgba(192, 101, 75, 0.08) 0%, rgba(192, 101, 75, 0) 60%),
+        linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+    }
+    .grain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 92px 0 84px;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+    .hero-logo { margin-bottom: 42px; }
+    .hero-logo img { display: block; margin: 0 auto; max-width: 400px; width: 82%; height: auto; }
+    .hero-logo-fallback { display: none; flex-direction: column; align-items: center; gap: 10px; }
+    .hero-logo-fallback .name {
+      font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 56px;
+      font-weight: 500; color: var(--navy); line-height: 1;
+    }
+    .hero-logo-fallback .sub {
+      font-family: "Inter", sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.28em; text-transform: uppercase; color: var(--navy);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .hero .subline {
+      margin: 28px auto 0;
+      max-width: 600px;
+      font-size: clamp(1.12rem, 2.1vw, 1.4rem);
+      line-height: 1.55;
+      color: var(--ink-soft);
+      text-wrap: balance;
+    }
+    .hero .subline em { color: var(--ink); }
+    .hero-cta {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ---------- What we do: pillars, not boxes ---------- */
+    .pillars { list-style: none; margin: 44px 0 0; padding: 0; }
+    .pillars li {
+      display: grid;
+      grid-template-columns: 2.6rem 1fr;
+      gap: 4px 28px;
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+    }
+    .pillars li:last-child { border-bottom: 1px solid var(--line); }
+    .pillar-num {
+      font-family: "Fraunces", serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      padding-top: 6px;
+    }
+    .pillar-body h3 { font-size: clamp(1.4rem, 2.6vw, 1.7rem); margin-bottom: 12px; }
+    .pillar-body p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.72; }
+
+    /* ---------- Proof: editorial figures ---------- */
+    .figures { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 44px; }
+    figure { margin: 0; }
+    .figure-img {
+      height: 300px;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(43,75,140,0.20), rgba(140,154,126,0.24)),
+        var(--cream-deep);
+    }
+    figure:nth-child(2) .figure-img {
+      background:
+        linear-gradient(135deg, rgba(140,154,126,0.28), rgba(43,75,140,0.16)),
+        var(--cream-deep);
+    }
+    .figure-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    figcaption { margin-top: 20px; }
+    .fig-label {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--navy); margin-bottom: 12px;
+    }
+    figcaption p { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.7; }
+    .proof-note {
+      margin-top: 40px;
+      font-style: italic;
+      color: var(--ink-soft);
+      font-family: "Fraunces", serif;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- The Audit: a quiet dark plate, the invitation ---------- */
+    .audit { background: var(--ink); color: var(--cream); overflow: hidden; }
+    .audit .lead-in { color: var(--navy-tint); }
+    .audit h2 { font-size: clamp(2rem, 4.2vw, 3rem); color: var(--cream); margin-bottom: 26px; }
+    .audit .body { color: #DBD1C1; font-size: 1.15rem; line-height: 1.72; }
+    .audit .price { color: var(--navy-tint); font-style: italic; }
+    .audit-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 36px; }
+    .audit-note { margin-top: 22px; font-size: 0.95rem; color: #B4A996; font-style: italic; }
+    .audit .textlink { color: #C9BEAD; border-color: rgba(201,190,173,0.4); }
+    .audit .textlink:hover { color: var(--navy-tint); border-color: var(--navy-tint); }
+
+    /* ---------- Close ---------- */
+    .close { text-align: center; }
+    .close .display-md { margin: 0 auto; max-width: 680px; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--ink); color: var(--cream); padding: 84px 0 52px; }
+    .footer-cta { padding-bottom: 44px; margin-bottom: 40px; border-bottom: 1px solid rgba(233, 224, 208, 0.14); }
+    .footer-cta h2 { color: var(--cream); font-size: clamp(1.65rem, 3.4vw, 2.4rem); max-width: 20ch; }
+    .footer-actions { margin-top: 28px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+    .footer-calllink {
+      color: var(--navy-tint); text-decoration: none; font-size: 16px;
+      border-bottom: 1px solid rgba(174, 192, 230, 0.4); padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .footer-calllink:hover { color: #FFFDF8; border-color: #FFFDF8; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+    .footer-mail {
+      font-family: "Fraunces", serif; font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+      color: var(--cream); text-decoration: none; transition: color 0.2s ease;
+    }
+    .footer-mail:hover { color: var(--navy-tint); }
+    .footer-meta { font-size: 14px; letter-spacing: 0.05em; color: #9C9285; text-align: right; }
+
+    /* ---------- Reveal on scroll (soft, slow, unhurried) ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal .pillars li, .reveal figure {
+      transform: translateY(16px);
+      transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.in .pillars li, .reveal.in figure { transform: none; }
+    .reveal.in .pillars li:nth-child(2) { transition-delay: 0.08s; }
+    .reveal.in .pillars li:nth-child(3) { transition-delay: 0.16s; }
+    .reveal.in figure:nth-child(2) { transition-delay: 0.1s; }
+
+    .hero-inner {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    }
+    @keyframes heroIn { to { opacity: 1; transform: none; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal .pillars li, .reveal figure { opacity: 1; transform: none; transition: none; }
+      .hero-inner { opacity: 1; transform: none; animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .figures { grid-template-columns: 1fr; gap: 44px; }
+      .pad { padding: 68px 0; }
+      .pad--beat { padding: 88px 0; }
+      .pad--tension { padding: 104px 0 96px; }
+      .pad--airy { padding: 84px 0; }
+    }
+
+    @media (max-width: 620px) {
+      body { font-size: 17px; }
+      .wrap { padding: 0 22px; }
+      .pad { padding: 56px 0; }
+      .pad--beat { padding: 72px 0; }
+      .pad--tension { padding: 84px 0 78px; }
+      .pad--airy { padding: 68px 0; }
+
+      .brand img { height: 32px; }
+      .brand-fallback { font-size: 22px; }
+      .pill { padding: 9px 15px; font-size: 14px; }
+
+      .hero-inner { padding: 60px 0 54px; }
+      .hero-logo { margin-bottom: 32px; }
+      .hero-logo img { width: 76%; max-width: 280px; }
+      .hero-logo-fallback .name { font-size: 42px; }
+      .hero h1 { font-size: clamp(2.15rem, 9vw, 2.9rem); line-height: 1.12; }
+      .hero .subline { font-size: 1.12rem; margin-top: 22px; }
+
+      .hero-cta { align-items: stretch; width: 100%; gap: 16px; }
+      .btn { display: block; width: 100%; text-align: center; padding: 17px 24px; font-size: 17px; }
+      .hero-cta .textlink { text-align: center; align-self: center; }
+
+      .pillars li { grid-template-columns: 1fr; gap: 8px; }
+      .pillar-num { padding-top: 0; }
+
+      .audit-cta { flex-direction: column; align-items: stretch; gap: 16px; }
+      .audit-cta .textlink { text-align: center; align-self: center; }
+
+      .figure-img { height: 240px; }
+
+      .footer-actions { flex-direction: column; align-items: stretch; gap: 16px; }
+      .footer-calllink { text-align: center; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-meta { text-align: left; }
+      .footer-mail { word-break: break-word; }
+    }
+
+    @media (max-width: 380px) {
+      .wrap { padding: 0 18px; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap header-inner">
+      <a href="#top" class="brand" aria-label="Satori, for hotels">
+        <img src="logo.png" alt="Satori"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+        <span class="brand-fallback">Satori</span>
+      </a>
+      <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="pill">Book a call</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. HERO -->
+    <section class="hero grain">
+      <div class="wrap hero-inner">
+        <!-- LOGO SLOT: drop logo.png into this folder and it replaces the text below automatically -->
+        <div class="hero-logo">
+          <img src="logo.png" alt="Satori, for hotels, established 2025"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span class="hero-logo-fallback">
+            <span class="name">Satori</span>
+            <span class="sub">for hotels</span>
+          </span>
+        </div>
+        <h1>Story-led consulting for boutique hospitality.</h1>
+        <p class="subline">The best independent hotels already have <em>the thing money can't buy</em>. We help them stop giving it away.</p>
+        <div class="hero-cta">
+          <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn">Book an intro call</a>
+          <a href="#work" class="textlink">Or see how we work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. THE TENSION -->
+    <section class="pad--tension reveal">
+      <div class="wrap measure">
+        <p class="display-lg">Somewhere along the way, the booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive little hotel into one more search result. The places with the most soul are often the ones handing the most of it away.</p>
+      </div>
+    </section>
+
+    <!-- 3. THE BELIEF -->
+    <section class="pad--beat reveal">
+      <div class="wrap measure">
+        <p class="display-md">We think that's backwards. The more a property leans into what makes it singular, the less it needs to rent its guests from anyone. Distinctiveness isn't a luxury. <em>It's the direct-booking strategy.</em></p>
+      </div>
+    </section>
+
+    <!-- 4. WHAT WE DO -->
+    <section id="work" class="pad reveal">
+      <div class="wrap measure">
+        <p class="lead-in">So here's the work.</p>
+        <ol class="pillars">
+          <li>
+            <span class="pillar-num">01</span>
+            <div class="pillar-body">
+              <h3>Revenue and Direct Bookings</h3>
+              <p>A clear read on where your revenue comes from today, your channel mix, and how exposed you are to the OTAs. Then the specific levers that move more bookings direct, at better margin.</p>
+            </div>
+          </li>
+          <li>
+            <span class="pillar-num">02</span>
+            <div class="pillar-body">
+              <h3>Brand and Positioning</h3>
+              <p>Where your brand actually sits versus the guest you want, honestly benchmarked against comparable properties. And a clear point of view on where to take it next, and why that direction will land.</p>
+            </div>
+          </li>
+          <li>
+            <span class="pillar-num">03</span>
+            <div class="pillar-body">
+              <h3>Signature Experience</h3>
+              <p>One ownable, genuinely experiential offering that gives guests a real reason to choose you over the place down the road. The kind of stay worth talking about, and worth traveling for.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROOF (woven evidence) -->
+    <section id="proof" class="pad reveal">
+      <div class="wrap measure-wide">
+        <p class="lead-in">It has already worked, quietly, for a few of them.</p>
+        <div class="figures">
+          <figure>
+            <!-- Swap src with your own photo when ready. Current: Unsplash (free license). -->
+            <div class="figure-img">
+              <img src="https://images.unsplash.com/photo-1693934304978-22274e6a3276?fm=jpg&q=70&w=1400&auto=format&fit=crop"
+                   alt="A boutique waterfront resort terrace overlooking the sea"
+                   loading="lazy" decoding="async" onerror="this.style.display='none';" />
+            </div>
+            <figcaption>
+              <p class="fig-label">Direct-Booking Transformation</p>
+              <p>An OTA-dependent lakeside resort getting its rates crushed by the platforms. We rebuilt the direct channel and booking economics around the property's real strengths.</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <!-- Swap src with your own photo when ready. Current: Unsplash (free license). -->
+            <div class="figure-img">
+              <img src="https://images.unsplash.com/photo-1782137182731-e5ed85566adb?fm=jpg&q=70&w=1400&auto=format&fit=crop"
+                   alt="A boutique alpine hotel set against the mountains"
+                   loading="lazy" decoding="async" onerror="this.style.display='none';" />
+            </div>
+            <figcaption>
+              <p class="fig-label">Brand-Led Margin Lift</p>
+              <p>A boutique mountain retreat priced well below what it was worth. We repositioned and repriced it into a premium, story-driven stay worth seeking out.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="proof-note">Full case studies available on request.</p>
+      </div>
+    </section>
+
+    <!-- 5. THE SELECTIVITY -->
+    <section class="pad--beat reveal">
+      <div class="wrap measure">
+        <p class="prose-lead">We work with a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread thin. So we only say yes when the fit is obvious.</p>
+      </div>
+    </section>
+
+    <!-- 6. THE AUDIT -->
+    <section id="audit" class="audit pad--airy grain reveal">
+      <div class="wrap measure">
+        <p class="lead-in">What comes next.</p>
+        <h2>When it's a fit, here's where we start.</h2>
+        <p class="body">Most partnerships begin with the Satori Audit, a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a clear plan you can actually use. But we like to talk first. A short call tells us both whether there's a real fit, and it's the best way to see how we think before anything else. If it clicks, we'll walk you through the audit from there.</p>
+        <div class="audit-cta">
+          <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book an intro call</a>
+        </div>
+        <p class="audit-note">The audit is $3,500, credited toward your first month if we keep building together.</p>
+      </div>
+    </section>
+
+    <!-- 7. CLOSE -->
+    <section class="close pad--beat reveal">
+      <div class="wrap">
+        <p class="display-md">The most valuable thing a hotel owns is its soul. The most expensive mistake is underselling it. <em>That's the whole reason Satori exists.</em></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-cta">
+        <h2>When you're ready, we're a conversation away.</h2>
+        <div class="footer-actions">
+          <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book 20 minutes</a>
+        </div>
+      </div>
+      <div class="footer-inner">
+        <a href="mailto:hello@satori-destinations.com" class="footer-mail">hello@satori-destinations.com</a>
+        <div class="footer-meta">© Satori 2025.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal-on-scroll (progressive enhancement; content shows without JS)
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

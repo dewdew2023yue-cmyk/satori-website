@@ -1,0 +1,9 @@
+# Static single-page site: no build step, publish from the repo root.
+[build]
+  publish = "."
+
+# Send the bare domain and any unknown path to index.html (single page).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
