@@ -81,6 +81,15 @@
     a { color: inherit; }
     em { font-style: italic; }
 
+    /* One consistent Fraunces voice: soft terminals + optical sizing everywhere the serif appears */
+    .display-lg, .display-md, .prose-lead,
+    .lead-in, .proof-note, .pillar-num,
+    .brand-fallback, .hero-logo-fallback .name,
+    .footer-cta h2, .footer-mail, .hero .subline em {
+      font-optical-sizing: auto;
+      font-variation-settings: "SOFT" 44;
+    }
+
     .wrap {
       width: 100%;
       max-width: var(--maxw);
@@ -185,25 +194,25 @@
     .display-lg {
       font-family: "Fraunces", Georgia, serif;
       font-weight: 400;
-      font-size: clamp(1.9rem, 4.4vw, 3.05rem);
-      line-height: 1.24;
-      letter-spacing: -0.015em;
+      font-size: clamp(1.65rem, 3.4vw, 2.5rem);
+      line-height: 1.3;
+      letter-spacing: -0.012em;
       color: var(--ink);
     }
     .display-md {
       font-family: "Fraunces", Georgia, serif;
       font-weight: 400;
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-      line-height: 1.3;
-      letter-spacing: -0.012em;
+      font-size: clamp(1.45rem, 2.9vw, 2.1rem);
+      line-height: 1.34;
+      letter-spacing: -0.01em;
       color: var(--ink);
     }
     .prose-lead {
       font-family: "Fraunces", Georgia, serif;
       font-weight: 400;
-      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
-      line-height: 1.45;
-      letter-spacing: -0.008em;
+      font-size: clamp(1.25rem, 2.3vw, 1.65rem);
+      line-height: 1.5;
+      letter-spacing: -0.006em;
       color: var(--ink);
     }
     .display-lg em, .display-md em, .prose-lead em { color: var(--navy); }
@@ -235,11 +244,11 @@
       max-width: 840px;
       margin: 0 auto;
     }
-    .hero-logo { margin-bottom: 42px; }
-    .hero-logo img { display: block; margin: 0 auto; max-width: 400px; width: 82%; height: auto; }
-    .hero-logo-fallback { display: none; flex-direction: column; align-items: center; gap: 10px; }
+    .hero-logo { margin-bottom: 40px; }
+    .hero-logo img { display: block; margin: 0 auto; max-width: 320px; width: 72%; height: auto; }
+    .hero-logo-fallback { display: none; flex-direction: column; align-items: center; gap: 9px; }
     .hero-logo-fallback .name {
-      font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 56px;
+      font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 44px;
       font-weight: 500; color: var(--navy); line-height: 1;
     }
     .hero-logo-fallback .sub {
@@ -247,19 +256,19 @@
       letter-spacing: 0.28em; text-transform: uppercase; color: var(--navy);
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-size: clamp(2rem, 4.6vw, 3.3rem);
       font-weight: 500;
       letter-spacing: -0.02em;
     }
     .hero .subline {
-      margin: 28px auto 0;
-      max-width: 600px;
-      font-size: clamp(1.12rem, 2.1vw, 1.4rem);
+      margin: 24px auto 0;
+      max-width: 560px;
+      font-size: clamp(1.05rem, 1.7vw, 1.2rem);
       line-height: 1.55;
       color: var(--ink-soft);
       text-wrap: balance;
     }
-    .hero .subline em { color: var(--ink); }
+    .hero .subline em { font-family: "Fraunces", Georgia, serif; font-style: italic; color: var(--navy); }
     .hero-cta {
       margin-top: 40px;
       display: flex;
@@ -284,7 +293,7 @@
       color: var(--navy);
       padding-top: 6px;
     }
-    .pillar-body h3 { font-size: clamp(1.4rem, 2.6vw, 1.7rem); margin-bottom: 12px; }
+    .pillar-body h3 { font-size: clamp(1.3rem, 2.3vw, 1.5rem); margin-bottom: 12px; }
     .pillar-body p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.72; }
 
     /* ---------- Proof: editorial figures ---------- */
@@ -310,7 +319,7 @@
       font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--navy); margin-bottom: 12px;
     }
-    figcaption p { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.7; }
+    figcaption p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.72; }
     .proof-note {
       margin-top: 40px;
       font-style: italic;
@@ -322,8 +331,9 @@
     /* ---------- The Audit: a quiet dark plate, the invitation ---------- */
     .audit { background: var(--ink); color: var(--cream); overflow: hidden; }
     .audit .lead-in { color: var(--navy-tint); }
-    .audit h2 { font-size: clamp(2rem, 4.2vw, 3rem); color: var(--cream); margin-bottom: 26px; }
+    .audit h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); color: var(--cream); margin-bottom: 24px; }
     .audit .body { color: #DBD1C1; font-size: 1.15rem; line-height: 1.72; }
+    .audit .body em { color: var(--navy-tint); font-style: italic; }
     .audit .price { color: var(--navy-tint); font-style: italic; }
     .audit-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 36px; }
     .audit-note { margin-top: 22px; font-size: 0.95rem; color: #B4A996; font-style: italic; }
@@ -406,10 +416,10 @@
 
       .hero-inner { padding: 60px 0 54px; }
       .hero-logo { margin-bottom: 32px; }
-      .hero-logo img { width: 76%; max-width: 280px; }
-      .hero-logo-fallback .name { font-size: 42px; }
-      .hero h1 { font-size: clamp(2.15rem, 9vw, 2.9rem); line-height: 1.12; }
-      .hero .subline { font-size: 1.12rem; margin-top: 22px; }
+      .hero-logo img { width: 68%; max-width: 240px; }
+      .hero-logo-fallback .name { font-size: 36px; }
+      .hero h1 { font-size: clamp(1.8rem, 7.6vw, 2.35rem); line-height: 1.14; }
+      .hero .subline { font-size: 1.06rem; margin-top: 20px; }
 
       .hero-cta { align-items: stretch; width: 100%; gap: 16px; }
       .btn { display: block; width: 100%; text-align: center; padding: 17px 24px; font-size: 17px; }
@@ -432,7 +442,7 @@
 
     @media (max-width: 380px) {
       .wrap { padding: 0 18px; }
-      .hero h1 { font-size: 2rem; }
+      .hero h1 { font-size: 1.75rem; }
     }
   </style>
 </head>
@@ -475,7 +485,7 @@
     <!-- 2. THE TENSION -->
     <section class="pad--tension reveal">
       <div class="wrap measure">
-        <p class="display-lg">Somewhere along the way, the booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive little hotel into one more search result. The places with the most soul are often the ones handing the most of it away.</p>
+        <p class="display-lg">Somewhere along the way, the third-party booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive little hotel into one more search result. The places with the most soul are often the ones <em>handing the most of it away</em>.</p>
       </div>
     </section>
 
@@ -553,7 +563,7 @@
     <!-- 5. THE SELECTIVITY -->
     <section class="pad--beat reveal">
       <div class="wrap measure">
-        <p class="prose-lead">We work with a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread thin. So we only say yes when the fit is obvious.</p>
+        <p class="prose-lead">Satori is a small consultancy for boutique hotels that would rather be <em>unmistakable</em> than everywhere. We come from hospitality, we care about the places with real character, and we take on only a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread ourselves thin, so we say yes only when the fit is obvious.</p>
       </div>
     </section>
 
@@ -562,7 +572,7 @@
       <div class="wrap measure">
         <p class="lead-in">What comes next.</p>
         <h2>When it's a fit, here's where we start.</h2>
-        <p class="body">Most partnerships begin with the Satori Audit, a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a clear plan you can actually use. But we like to talk first. A short call tells us both whether there's a real fit, and it's the best way to see how we think before anything else. If it clicks, we'll walk you through the audit from there.</p>
+        <p class="body">Most partnerships begin with the Satori Audit, a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a clear plan you can actually use. But <em>we like to talk first</em>. A short call tells us both whether there's a real fit, and it's the best way to see how we think before anything else. If it clicks, we'll walk you through the audit from there.</p>
         <div class="audit-cta">
           <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book an intro call</a>
         </div>
@@ -573,7 +583,7 @@
     <!-- 7. CLOSE -->
     <section class="close pad--beat reveal">
       <div class="wrap">
-        <p class="display-md">The most valuable thing a hotel owns is its soul. The most expensive mistake is underselling it. <em>That's the whole reason Satori exists.</em></p>
+        <p class="display-md">The most valuable thing a hotel owns is its unique story and brand identity. The most expensive mistake in hospitality is underselling it. <em>Satori exists to make sure the select few we work with never do.</em></p>
       </div>
     </section>
 
