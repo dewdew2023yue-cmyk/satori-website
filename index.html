@@ -175,10 +175,11 @@
 
     /* ---------- Section rhythm (generous, varied, so each beat lands) ---------- */
     section { position: relative; }
-    .pad { padding: 76px 0; }
-    .pad--beat { padding: 92px 0; }
-    .pad--tension { padding: 108px 0 100px; }
-    .pad--airy { padding: 88px 0; }
+    .pad { padding: 72px 0; }
+    .pad--beat { padding: 84px 0; }
+    .pad--open { padding: 84px 0 44px; }   /* tension: opens the passage, hugs the turn */
+    .pad--turn { padding: 44px 0 84px; }   /* belief: completes it */
+    .pad--airy { padding: 84px 0; }
     #work, #proof, #audit { scroll-margin-top: 84px; }
 
     /* Small italic lead-ins that stitch beats together */
@@ -388,19 +389,21 @@
     /* ---------- Responsive ---------- */
     @media (max-width: 860px) {
       .figures { grid-template-columns: 1fr; gap: 40px; }
-      .pad { padding: 58px 0; }
-      .pad--beat { padding: 70px 0; }
-      .pad--tension { padding: 84px 0 78px; }
-      .pad--airy { padding: 68px 0; }
+      .pad { padding: 54px 0; }
+      .pad--beat { padding: 64px 0; }
+      .pad--open { padding: 64px 0 32px; }
+      .pad--turn { padding: 32px 0 64px; }
+      .pad--airy { padding: 64px 0; }
     }
 
     @media (max-width: 620px) {
       body { font-size: 17px; }
       .wrap { padding: 0 22px; }
-      .pad { padding: 48px 0; }
-      .pad--beat { padding: 58px 0; }
-      .pad--tension { padding: 66px 0 60px; }
-      .pad--airy { padding: 56px 0; }
+      .pad { padding: 44px 0; }
+      .pad--beat { padding: 52px 0; }
+      .pad--open { padding: 52px 0 26px; }
+      .pad--turn { padding: 26px 0 52px; }
+      .pad--airy { padding: 52px 0; }
 
       .brand img { height: 32px; }
       .brand-fallback { font-size: 22px; }
@@ -477,14 +480,14 @@
     </section>
 
     <!-- 2. THE TENSION -->
-    <section class="pad--tension reveal">
+    <section class="pad--open reveal">
       <div class="wrap measure">
         <p class="display-md">Somewhere along the way, the third-party booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive little hotel into one more search result. The places with the most soul are often the ones <em>handing the most of it away</em>.</p>
       </div>
     </section>
 
     <!-- 3. THE BELIEF -->
-    <section class="pad--beat reveal">
+    <section class="pad--turn reveal">
       <div class="wrap measure">
         <p class="display-md">We think that's backwards. The more a property leans into what makes it singular, the less it needs to rent its guests from anyone. Distinctiveness isn't a luxury. <em>It's the direct-booking strategy.</em></p>
       </div>
