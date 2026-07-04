@@ -175,10 +175,10 @@
 
     /* ---------- Section rhythm (generous, varied, so each beat lands) ---------- */
     section { position: relative; }
-    .pad { padding: 88px 0; }
-    .pad--beat { padding: 112px 0; }
-    .pad--tension { padding: 138px 0 130px; }
-    .pad--airy { padding: 104px 0; }
+    .pad { padding: 76px 0; }
+    .pad--beat { padding: 92px 0; }
+    .pad--tension { padding: 108px 0 100px; }
+    .pad--airy { padding: 88px 0; }
     #work, #proof, #audit { scroll-margin-top: 84px; }
 
     /* Small italic lead-ins that stitch beats together */
@@ -240,11 +240,11 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      padding: 92px 0 84px;
+      padding: 74px 0 70px;
       max-width: 840px;
       margin: 0 auto;
     }
-    .hero-logo { margin-bottom: 40px; }
+    .hero-logo { margin-bottom: 32px; }
     .hero-logo img { display: block; margin: 0 auto; max-width: 320px; width: 72%; height: auto; }
     .hero-logo-fallback { display: none; flex-direction: column; align-items: center; gap: 9px; }
     .hero-logo-fallback .name {
@@ -270,15 +270,15 @@
     }
     .hero .subline em { font-family: "Fraunces", Georgia, serif; font-style: italic; color: var(--navy); }
     .hero-cta {
-      margin-top: 40px;
+      margin-top: 34px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
 
     /* ---------- What we do: pillars, not boxes ---------- */
-    .pillars { list-style: none; margin: 44px 0 0; padding: 0; }
+    .pillars { list-style: none; margin: 10px 0 0; padding: 0; }
     .pillars li {
       display: grid;
       grid-template-columns: 2.6rem 1fr;
@@ -297,7 +297,7 @@
     .pillar-body p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.72; }
 
     /* ---------- Proof: editorial figures ---------- */
-    .figures { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 44px; }
+    .figures { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 14px; }
     figure { margin: 0; }
     .figure-img {
       height: 300px;
@@ -395,38 +395,40 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 860px) {
-      .figures { grid-template-columns: 1fr; gap: 44px; }
-      .pad { padding: 68px 0; }
-      .pad--beat { padding: 88px 0; }
-      .pad--tension { padding: 104px 0 96px; }
-      .pad--airy { padding: 84px 0; }
+      .figures { grid-template-columns: 1fr; gap: 40px; }
+      .pad { padding: 58px 0; }
+      .pad--beat { padding: 70px 0; }
+      .pad--tension { padding: 84px 0 78px; }
+      .pad--airy { padding: 68px 0; }
     }
 
     @media (max-width: 620px) {
       body { font-size: 17px; }
       .wrap { padding: 0 22px; }
-      .pad { padding: 56px 0; }
-      .pad--beat { padding: 72px 0; }
-      .pad--tension { padding: 84px 0 78px; }
-      .pad--airy { padding: 68px 0; }
+      .pad { padding: 48px 0; }
+      .pad--beat { padding: 58px 0; }
+      .pad--tension { padding: 66px 0 60px; }
+      .pad--airy { padding: 56px 0; }
 
       .brand img { height: 32px; }
       .brand-fallback { font-size: 22px; }
       .pill { padding: 9px 15px; font-size: 14px; }
 
-      .hero-inner { padding: 60px 0 54px; }
-      .hero-logo { margin-bottom: 32px; }
-      .hero-logo img { width: 68%; max-width: 240px; }
+      .hero-inner { padding: 46px 0 44px; }
+      .hero-logo { margin-bottom: 24px; }
+      .hero-logo img { width: 64%; max-width: 220px; }
       .hero-logo-fallback .name { font-size: 36px; }
       .hero h1 { font-size: clamp(1.8rem, 7.6vw, 2.35rem); line-height: 1.14; }
       .hero .subline { font-size: 1.06rem; margin-top: 20px; }
 
-      .hero-cta { align-items: stretch; width: 100%; gap: 16px; }
+      .hero-cta { align-items: stretch; width: 100%; gap: 15px; margin-top: 28px; }
       .btn { display: block; width: 100%; text-align: center; padding: 17px 24px; font-size: 17px; }
       .hero-cta .textlink { text-align: center; align-self: center; }
 
-      .pillars li { grid-template-columns: 1fr; gap: 8px; }
+      .pillars li { grid-template-columns: 1fr; gap: 6px; padding: 26px 0; }
       .pillar-num { padding-top: 0; }
+      footer { padding: 60px 0 40px; }
+      .footer-cta { padding-bottom: 34px; margin-bottom: 30px; }
 
       .audit-cta { flex-direction: column; align-items: stretch; gap: 16px; }
       .audit-cta .textlink { text-align: center; align-self: center; }
@@ -534,7 +536,11 @@
           <figure>
             <!-- Swap src with your own photo when ready. Current: Unsplash (free license). -->
             <div class="figure-img">
-              <img src="https://images.unsplash.com/photo-1693934304978-22274e6a3276?fm=jpg&q=70&w=1400&auto=format&fit=crop"
+              <img src="https://images.unsplash.com/photo-1693934304978-22274e6a3276?fm=jpg&q=70&w=900&auto=format&fit=crop"
+                   srcset="https://images.unsplash.com/photo-1693934304978-22274e6a3276?fm=jpg&q=70&w=600&auto=format&fit=crop 600w,
+                           https://images.unsplash.com/photo-1693934304978-22274e6a3276?fm=jpg&q=70&w=900&auto=format&fit=crop 900w,
+                           https://images.unsplash.com/photo-1693934304978-22274e6a3276?fm=jpg&q=70&w=1400&auto=format&fit=crop 1400w"
+                   sizes="(max-width: 860px) calc(100vw - 44px), 440px"
                    alt="A boutique waterfront resort terrace overlooking the sea"
                    loading="lazy" decoding="async" onerror="this.style.display='none';" />
             </div>
@@ -546,7 +552,11 @@
           <figure>
             <!-- Swap src with your own photo when ready. Current: Unsplash (free license). -->
             <div class="figure-img">
-              <img src="https://images.unsplash.com/photo-1782137182731-e5ed85566adb?fm=jpg&q=70&w=1400&auto=format&fit=crop"
+              <img src="https://images.unsplash.com/photo-1782137182731-e5ed85566adb?fm=jpg&q=70&w=900&auto=format&fit=crop"
+                   srcset="https://images.unsplash.com/photo-1782137182731-e5ed85566adb?fm=jpg&q=70&w=600&auto=format&fit=crop 600w,
+                           https://images.unsplash.com/photo-1782137182731-e5ed85566adb?fm=jpg&q=70&w=900&auto=format&fit=crop 900w,
+                           https://images.unsplash.com/photo-1782137182731-e5ed85566adb?fm=jpg&q=70&w=1400&auto=format&fit=crop 1400w"
+                   sizes="(max-width: 860px) calc(100vw - 44px), 440px"
                    alt="A boutique alpine hotel set against the mountains"
                    loading="lazy" decoding="async" onerror="this.style.display='none';" />
             </div>
