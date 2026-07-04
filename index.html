@@ -330,6 +330,13 @@
     .audit .price { color: var(--navy-tint); font-style: italic; }
     .audit-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 36px; }
     .audit-note { margin-top: 22px; font-size: 0.95rem; color: #B4A996; font-style: italic; }
+    .audit-qualifier {
+      margin-top: 26px;
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #CBC0AC;
+    }
     .audit .textlink { color: #C9BEAD; border-color: rgba(201,190,173,0.4); }
     .audit .textlink:hover { color: var(--navy-tint); border-color: var(--navy-tint); }
 
@@ -342,12 +349,12 @@
     .footer-cta { padding-bottom: 44px; margin-bottom: 40px; border-bottom: 1px solid rgba(233, 224, 208, 0.14); }
     .footer-cta h2 { color: var(--cream); font-size: clamp(1.65rem, 3.4vw, 2.4rem); max-width: 20ch; }
     .footer-actions { margin-top: 28px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
-    .footer-calllink {
-      color: var(--navy-tint); text-decoration: none; font-size: 16px;
-      border-bottom: 1px solid rgba(174, 192, 230, 0.4); padding-bottom: 2px;
-      transition: color 0.2s ease, border-color 0.2s ease;
+    .footer-tag {
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: 1.02rem;
+      color: #C9BEAD;
     }
-    .footer-calllink:hover { color: #FFFDF8; border-color: #FFFDF8; }
     .footer-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
     .footer-mail {
       font-family: "Fraunces", serif; font-size: clamp(1.5rem, 3.4vw, 2.1rem);
@@ -430,8 +437,8 @@
 
       .figure-img { height: 240px; }
 
-      .footer-actions { flex-direction: column; align-items: stretch; gap: 16px; }
-      .footer-calllink { text-align: center; }
+      .footer-actions { flex-direction: column; align-items: stretch; gap: 14px; }
+      .footer-tag { text-align: center; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-meta { text-align: left; }
       .footer-mail { word-break: break-word; }
@@ -452,7 +459,7 @@
              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
         <span class="brand-fallback">Satori</span>
       </a>
-      <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="pill">Book a call</a>
+      <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="pill">Book an intro call</a>
     </div>
   </header>
 
@@ -526,7 +533,7 @@
     <!-- PROOF (woven evidence) -->
     <section id="proof" class="pad reveal">
       <div class="wrap measure-wide">
-        <p class="lead-in">It has already worked, quietly, for a few of them.</p>
+        <p class="lead-in">It's already working for a few of them.</p>
         <div class="figures">
           <figure>
             <!-- Swap src with your own photo when ready. Current: Unsplash (free license). -->
@@ -575,13 +582,13 @@
     <!-- 6. THE AUDIT -->
     <section id="audit" class="audit pad--airy grain reveal">
       <div class="wrap measure">
-        <p class="lead-in">What comes next.</p>
         <h2>When it's a fit, here's where we start.</h2>
-        <p class="body">Most partnerships begin with the Satori Audit, a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a clear plan you can actually use. But <em>we like to talk first</em>. A short call tells us both whether there's a real fit, and it's the best way to see how we think before anything else. If it clicks, we'll walk you through the audit from there.</p>
+        <p class="body">Most partnerships begin with the Satori Audit: a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a plan you can actually use. But <em>we like to talk first</em>. A short call tells us both whether there's a fit, and you'll know how we think inside twenty minutes. If it clicks, the audit is the next step.</p>
         <div class="audit-cta">
           <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book an intro call</a>
         </div>
-        <p class="audit-note">The audit is $3,500, credited toward your first month if we keep building together.</p>
+        <p class="audit-note">The audit is $3,500. If we keep going, the work continues as a monthly partnership, and the audit fee comes off your first month.</p>
+        <p class="audit-qualifier">We work best with independent, owner-run properties that already have something worth protecting.</p>
       </div>
     </section>
 
@@ -600,12 +607,13 @@
       <div class="footer-cta">
         <h2>When you're ready, we're a conversation away.</h2>
         <div class="footer-actions">
-          <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book 20 minutes</a>
+          <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book an intro call</a>
+          <span class="footer-tag">Twenty minutes, no pitch.</span>
         </div>
       </div>
       <div class="footer-inner">
         <a href="mailto:hello@satori-destinations.com" class="footer-mail">hello@satori-destinations.com</a>
-        <div class="footer-meta">© Satori 2025.</div>
+        <div class="footer-meta">© 2026 Satori · Est. 2025 · Toronto</div>
       </div>
     </div>
   </footer>
