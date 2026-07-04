@@ -45,7 +45,8 @@
 
     body {
       margin: 0;
-      background: var(--cream);
+      /* long, barely-there warm shift: the page reads as lit paper, not flat fill */
+      background: linear-gradient(180deg, #F2EAD8 0%, #F5EEDF 22%, #F9F3E6 58%, #F4EDDC 100%) var(--cream);
       color: var(--ink);
       font-family: "Inter", system-ui, -apple-system, sans-serif;
       font-size: 18px;
@@ -62,7 +63,7 @@
       inset: 0;
       z-index: 9998;
       pointer-events: none;
-      opacity: 0.045;
+      opacity: 0.065;   /* uncoated-stock tactility */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
       background-size: 160px 160px;
     }
@@ -175,11 +176,11 @@
 
     /* ---------- Section rhythm (generous, varied, so each beat lands) ---------- */
     section { position: relative; }
-    .pad { padding: 72px 0; }
-    .pad--beat { padding: 84px 0; }
-    .pad--open { padding: 84px 0 44px; }   /* tension: opens the passage, hugs the turn */
-    .pad--turn { padding: 44px 0 84px; }   /* belief: completes it */
-    .pad--airy { padding: 84px 0; }
+    .pad { padding: 112px 0; }
+    .pad--beat { padding: 148px 0; }
+    .pad--open { padding: 164px 0 76px; }   /* tension: opens the passage, hugs the turn */
+    .pad--turn { padding: 76px 0 164px; }   /* belief: completes it */
+    .pad--airy { padding: 128px 0; }
     #work, #proof, #audit { scroll-margin-top: 84px; }
 
     /* Small italic lead-ins that stitch beats together */
@@ -191,14 +192,45 @@
       margin-bottom: 30px;
     }
 
-    /* Editorial display prose */
+    /* Editorial display prose: pull-quote scale */
     .display-md {
       font-family: "Fraunces", Georgia, serif;
       font-weight: 400;
-      font-size: clamp(1.45rem, 2.9vw, 2.1rem);
-      line-height: 1.34;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.55rem, 3.5vw, 2.65rem);
+      line-height: 1.38;
+      letter-spacing: -0.012em;
       color: var(--ink);
+    }
+    /* narrow poetic measures for the big statements */
+    .quote-left { max-width: 30ch; }
+    .quote-framed {
+      text-align: center;
+      max-width: 26ch;
+      margin: 0 auto;
+      padding: 52px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Chapter kickers: tiny, letterspaced, ink blue */
+    .kicker {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+    .kicker--center { text-align: center; }
+    .audit .kicker { color: var(--navy-tint); }
+
+    /* Quiet hairline between beats */
+    .beat-rule {
+      border: 0;
+      border-top: 1px solid var(--line);
+      width: 88px;
+      margin: 0 auto;
     }
     .prose-lead {
       font-family: "Fraunces", Georgia, serif;
@@ -233,7 +265,7 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      padding: 74px 0 70px;
+      padding: 96px 0 100px;
       max-width: 840px;
       margin: 0 auto;
     }
@@ -290,11 +322,11 @@
     .pillar-body p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.72; }
 
     /* ---------- Proof: editorial figures ---------- */
-    .figures { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 14px; }
+    .figures { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 18px; }
     figure { margin: 0; }
     .figure-img {
       height: 300px;
-      border-radius: 6px;
+      border-radius: 10px;
       overflow: hidden;
       position: relative;
       background:
@@ -306,8 +338,21 @@
         linear-gradient(135deg, rgba(140,154,126,0.28), rgba(43,75,140,0.16)),
         var(--cream-deep);
     }
-    .figure-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    figcaption { margin-top: 20px; }
+    .figure-img img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: saturate(0.88) sepia(0.08);   /* warm grade into the palette */
+    }
+    /* soft warm wash so photos read as printed, not pasted */
+    .figure-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, rgba(43,75,140,0.08), rgba(192,101,75,0.10) 80%);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    figcaption { margin-top: 26px; }
     .fig-label {
       font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--navy); margin-bottom: 12px;
@@ -342,7 +387,7 @@
 
     /* ---------- Close ---------- */
     .close { text-align: center; }
-    .close .display-md { margin: 0 auto; max-width: 680px; }
+    .close .display-md { margin: 0 auto; max-width: 28ch; }
 
     /* ---------- Footer ---------- */
     footer { background: var(--ink); color: var(--cream); padding: 84px 0 52px; }
@@ -366,19 +411,19 @@
     /* ---------- Reveal on scroll (soft, slow, unhurried) ---------- */
     .reveal {
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(22px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .reveal.in { opacity: 1; transform: none; }
     .reveal .pillars li, .reveal figure {
-      transform: translateY(16px);
-      transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(14px);
+      transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .reveal.in .pillars li, .reveal.in figure { transform: none; }
-    .reveal.in .pillars li:nth-child(2) { transition-delay: 0.08s; }
-    .reveal.in .pillars li:nth-child(3) { transition-delay: 0.16s; }
-    .reveal.in figure:nth-child(2) { transition-delay: 0.1s; }
+    .reveal.in .pillars li:nth-child(2) { transition-delay: 0.12s; }
+    .reveal.in .pillars li:nth-child(3) { transition-delay: 0.24s; }
+    .reveal.in figure:nth-child(2) { transition-delay: 0.14s; }
 
     .hero-inner {
       opacity: 0;
@@ -395,28 +440,31 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 860px) {
-      .figures { grid-template-columns: 1fr; gap: 40px; }
-      .pad { padding: 54px 0; }
-      .pad--beat { padding: 64px 0; }
-      .pad--open { padding: 64px 0 32px; }
-      .pad--turn { padding: 32px 0 64px; }
-      .pad--airy { padding: 64px 0; }
+      .figures { grid-template-columns: 1fr; gap: 44px; }
+      .pad { padding: 80px 0; }
+      .pad--beat { padding: 102px 0; }
+      .pad--open { padding: 112px 0 54px; }
+      .pad--turn { padding: 54px 0 112px; }
+      .pad--airy { padding: 92px 0; }
     }
 
     @media (max-width: 620px) {
       body { font-size: 17px; }
       .wrap { padding: 0 22px; }
-      .pad { padding: 44px 0; }
-      .pad--beat { padding: 52px 0; }
-      .pad--open { padding: 52px 0 26px; }
-      .pad--turn { padding: 26px 0 52px; }
-      .pad--airy { padding: 52px 0; }
+      .pad { padding: 64px 0; }
+      .pad--beat { padding: 82px 0; }
+      .pad--open { padding: 90px 0 42px; }
+      .pad--turn { padding: 42px 0 90px; }
+      .pad--airy { padding: 72px 0; }
+      .kicker { margin-bottom: 22px; }
+      .quote-framed { padding: 38px 0; max-width: 100%; }
+      .quote-left { max-width: 100%; }
 
       .brand img { height: 32px; }
       .brand-fallback { font-size: 22px; }
       .pill { padding: 9px 15px; font-size: 14px; }
 
-      .hero-inner { padding: 46px 0 44px; }
+      .hero-inner { padding: 58px 0 60px; }
       .hero-logo { margin-bottom: 24px; }
       .hero-logo img { width: 64%; max-width: 220px; }
       .hero-logo-fallback .name { font-size: 36px; }
@@ -489,20 +537,23 @@
     <!-- 2. THE TENSION -->
     <section class="pad--open reveal">
       <div class="wrap measure">
-        <p class="display-md">Somewhere along the way, the third-party booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive little hotel into one more search result. The places with the most soul are often the ones <em>handing the most of it away</em>.</p>
+        <p class="kicker">01 · The problem</p>
+        <p class="display-md quote-left">Somewhere along the way, the third-party booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive little hotel into one more search result. The places with the most soul are often the ones <em>handing the most of it away</em>.</p>
       </div>
     </section>
 
     <!-- 3. THE BELIEF -->
     <section class="pad--turn reveal">
       <div class="wrap measure">
-        <p class="display-md">We think that's backwards. The more a property leans into what makes it singular, the less it needs to rent its guests from anyone. Distinctiveness isn't a luxury. <em>It's the direct-booking strategy.</em></p>
+        <p class="kicker kicker--center">02 · What we believe</p>
+        <p class="display-md quote-framed">We think that's backwards. The more a property leans into what makes it singular, the less it needs to rent its guests from anyone. Distinctiveness isn't a luxury. <em>It's the direct-booking strategy.</em></p>
       </div>
     </section>
 
     <!-- 4. WHAT WE DO -->
     <section id="work" class="pad reveal">
       <div class="wrap measure">
+        <p class="kicker">03 · What we do</p>
         <p class="lead-in">So here's the work.</p>
         <ol class="pillars">
           <li>
@@ -530,9 +581,12 @@
       </div>
     </section>
 
+    <hr class="beat-rule" />
+
     <!-- PROOF (woven evidence) -->
     <section id="proof" class="pad reveal">
       <div class="wrap measure-wide">
+        <p class="kicker">04 · Proof</p>
         <p class="lead-in">It's already working for a few of them.</p>
         <div class="figures">
           <figure>
@@ -572,9 +626,12 @@
       </div>
     </section>
 
+    <hr class="beat-rule" />
+
     <!-- 5. THE SELECTIVITY -->
     <section class="pad--beat reveal">
       <div class="wrap measure">
+        <p class="kicker">05 · Who we are</p>
         <p class="prose-lead">Satori is a boutique consultancy for boutique hotels that would rather be <em>unmistakable</em> than everywhere. We come from hospitality, we care about the places with real character, and we take on only a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread ourselves thin, so we say yes only when the fit is obvious.</p>
       </div>
     </section>
@@ -582,6 +639,7 @@
     <!-- 6. THE AUDIT -->
     <section id="audit" class="audit pad--airy grain reveal">
       <div class="wrap measure">
+        <p class="kicker">06 · The audit</p>
         <h2>When it's a fit, here's where we start.</h2>
         <p class="body">Most partnerships begin with the Satori Audit: a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a plan you can actually use. But <em>we like to talk first</em>. A short call tells us both whether there's a fit, and you'll know how we think inside twenty minutes. If it clicks, the audit is the next step.</p>
         <div class="audit-cta">
