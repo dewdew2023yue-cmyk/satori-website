@@ -330,12 +330,13 @@
     .audit .price { color: var(--navy-tint); font-style: italic; }
     .audit-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 36px; }
     .audit-note { margin-top: 22px; font-size: 0.95rem; color: #B4A996; font-style: italic; }
-    .audit-qualifier {
-      margin-top: 26px;
+    /* qualifying line: closes the who-we-are beat, gates the audit */
+    .fit-line {
+      margin-top: 34px;
       font-family: "Fraunces", Georgia, serif;
       font-style: italic;
-      font-size: 1.05rem;
-      color: #CBC0AC;
+      font-size: clamp(1.08rem, 1.9vw, 1.3rem);
+      color: var(--navy);
     }
     .audit .textlink { color: #C9BEAD; border-color: rgba(201,190,173,0.4); }
     .audit .textlink:hover { color: var(--navy-tint); border-color: var(--navy-tint); }
@@ -576,6 +577,7 @@
     <section class="pad--beat reveal">
       <div class="wrap measure">
         <p class="prose-lead">Satori is a boutique consultancy for independent hotels that would rather be <em>unmistakable</em> than everywhere. We come from hospitality, we care about the places with real character, and we take on only a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread ourselves thin, so we say yes only when the fit is obvious.</p>
+        <p class="fit-line">We work best with independent, owner-run properties that already have something worth protecting.</p>
       </div>
     </section>
 
@@ -588,7 +590,6 @@
           <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book an intro call</a>
         </div>
         <p class="audit-note">The audit is $3,500. If we keep going, the work continues as a monthly partnership, and the audit fee comes off your first month.</p>
-        <p class="audit-qualifier">We work best with independent, owner-run properties that already have something worth protecting.</p>
       </div>
     </section>
 
