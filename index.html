@@ -191,6 +191,48 @@
       margin-bottom: 30px;
     }
 
+    /* Small-caps kicker */
+    .kicker {
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 26px;
+    }
+
+    /* Big-number callout: the stat does the talking */
+    .stat { margin-top: 54px; }
+    .stat-num {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(3.2rem, 8.5vw, 5.6rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      font-optical-sizing: auto;
+      font-variation-settings: "SOFT" 44;
+    }
+    .stat-sub {
+      margin-top: 14px;
+      font-size: 1rem;
+      color: var(--ink-soft);
+      max-width: 40ch;
+    }
+
+    /* Centered pull quote with thin rules */
+    .pull-quote {
+      font-size: clamp(1.7rem, 3.5vw, 2.55rem);
+      line-height: 1.35;
+      text-align: center;
+      max-width: 24ch;
+      margin: 0 auto;
+      padding: 46px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
     /* Editorial display prose */
     .display-md {
       font-family: "Fraunces", Georgia, serif;
@@ -328,7 +370,34 @@
     .audit .body { color: #DBD1C1; font-size: 1.15rem; line-height: 1.72; }
     .audit .body em { color: var(--navy-tint); font-style: italic; }
     .audit .price { color: var(--navy-tint); font-style: italic; }
-    .audit-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 36px; }
+    /* The path: three stops on one thin rule */
+    .steps {
+      list-style: none;
+      margin: 40px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .steps li {
+      border-top: 1px solid rgba(174, 192, 230, 0.32);
+      padding: 20px 28px 0 0;
+    }
+    .step-num {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--navy-tint);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .step-title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .step-sub { font-size: 0.98rem; color: #C9BEAD; }
+
+    .audit-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; margin-top: 40px; }
     .audit-note { margin-top: 22px; font-size: 0.95rem; color: #B4A996; font-style: italic; }
     /* qualifying line: closes the who-we-are beat, gates the audit */
     .fit-line {
@@ -436,6 +505,12 @@
       .audit-cta { flex-direction: column; align-items: stretch; gap: 16px; }
       .audit-cta .textlink { text-align: center; align-self: center; }
 
+      .kicker { margin-bottom: 20px; }
+      .stat { margin-top: 40px; }
+      .pull-quote { max-width: 100%; padding: 34px 0; }
+      .steps { grid-template-columns: 1fr; row-gap: 24px; margin-top: 34px; }
+      .steps li { padding: 16px 0 0; }
+
       .figure-img { height: 240px; }
 
       .footer-actions { flex-direction: column; align-items: stretch; gap: 14px; }
@@ -490,14 +565,18 @@
     <!-- 2. THE TENSION -->
     <section class="pad--open reveal">
       <div class="wrap measure">
-        <p class="display-md">Somewhere along the way, the third-party booking platforms became the middlemen your guests never asked for. They take their cut, they own the relationship, and they flatten every distinctive boutique hotel into one more search result. The places with the most soul are often the ones <em>handing the most of it away</em>.</p>
+        <p class="display-md">Somewhere along the way, the third-party booking platforms became the middlemen your guests never asked for. They own the relationship, and they flatten every distinctive boutique hotel into one more search result. The places with the most soul are often the ones <em>handing the most of it away</em>.</p>
+        <div class="stat">
+          <p class="stat-num">15 to 25%</p>
+          <p class="stat-sub">the cut booking platforms take of every reservation.</p>
+        </div>
       </div>
     </section>
 
     <!-- 3. THE BELIEF -->
     <section class="pad--turn reveal">
       <div class="wrap measure">
-        <p class="display-md">We think that's backwards. The more a property leans into what makes it singular, the less it needs to rent its guests from anyone. Distinctiveness isn't a luxury. <em>It's the direct-booking strategy.</em></p>
+        <p class="display-md pull-quote">We think that's backwards. The more a property leans into what makes it singular, the less it needs to rent its guests from anyone. Distinctiveness isn't a luxury. <em>It's the direct-booking strategy.</em></p>
       </div>
     </section>
 
@@ -510,24 +589,32 @@
             <span class="pillar-num">01</span>
             <div class="pillar-body">
               <h3>Revenue and Direct Bookings</h3>
-              <p>Where your revenue comes from today, your channel mix, and how exposed you are to the OTAs. Then the specific levers that move more bookings direct, at better margin.</p>
+              <p>Where your revenue comes from today, and how exposed you are to the OTAs. Then the levers that move bookings direct, at better margin.</p>
             </div>
           </li>
           <li>
             <span class="pillar-num">02</span>
             <div class="pillar-body">
               <h3>Brand and Positioning</h3>
-              <p>Where your brand actually sits versus the guest you want, benchmarked without flattery against comparable properties. And a clear point of view on where to take it next, and why it will land.</p>
+              <p>Where your brand actually sits versus the guest you want, benchmarked without flattery. And a clear point of view on where to take it next.</p>
             </div>
           </li>
           <li>
             <span class="pillar-num">03</span>
             <div class="pillar-body">
               <h3>Signature Experience</h3>
-              <p>One experience only your property could deliver, and a real reason for guests to choose you over the place down the road. The kind of stay worth talking about, and worth traveling for.</p>
+              <p>One experience only your property could deliver. The kind of stay worth talking about, and worth traveling for.</p>
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- PARTNERSHIPS: a quiet standalone moment -->
+    <section class="pad--beat reveal">
+      <div class="wrap measure">
+        <p class="kicker">Beyond the property</p>
+        <p class="prose-lead">And when the fit is right, we bring partners to the table. Wellness brands, creators, and collaborators who extend a property's story beyond its walls. <em>Some of the best marketing is a friendship between two brands that belong together.</em></p>
       </div>
     </section>
 
@@ -549,7 +636,7 @@
             </div>
             <figcaption>
               <p class="fig-label">Direct-Booking Transformation</p>
-              <p>An OTA-dependent lakeside resort getting its rates crushed by the platforms. We rebuilt the direct channel and booking economics around the property's real strengths.</p>
+              <p>An OTA-dependent lakeside resort getting its rates crushed. We rebuilt the direct channel around the property's real strengths.</p>
             </figcaption>
           </figure>
           <figure>
@@ -565,7 +652,7 @@
             </div>
             <figcaption>
               <p class="fig-label">Brand-Led Margin Lift</p>
-              <p>A boutique mountain retreat priced well below its true value. We repositioned and repriced it into the premium, story-driven stay it should have been all along.</p>
+              <p>A mountain retreat priced well below its true value. We repositioned and repriced it into the premium, story-driven stay it should have been all along.</p>
             </figcaption>
           </figure>
         </div>
@@ -576,7 +663,7 @@
     <!-- 5. THE SELECTIVITY -->
     <section class="pad--beat reveal">
       <div class="wrap measure">
-        <p class="prose-lead">Satori is a boutique consultancy for independent hotels that would rather be <em>unmistakable</em> than everywhere. We come from hospitality, we care about the places with real character, and we take on only a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread ourselves thin, so we say yes only when the fit is obvious.</p>
+        <p class="prose-lead">Satori is a boutique consultancy for independent hotels that would rather be <em>unmistakable</em> than everywhere. We come from hospitality, and we take on only a handful of properties at a time, on purpose. We'd rather go deep with a few owners we believe in than spread ourselves thin, so we say yes only when the fit is obvious.</p>
         <p class="fit-line">We work best with independent, owner-run properties that already have something worth protecting.</p>
       </div>
     </section>
@@ -585,11 +672,28 @@
     <section id="audit" class="audit pad--airy grain reveal">
       <div class="wrap measure">
         <h2>When it's a fit, here's where we start.</h2>
-        <p class="body">Most partnerships begin with the Satori Audit: a focused, honest read on your revenue, your positioning, and the money slipping away to the platforms, delivered as a working session with a plan you can actually use. But <em>we like to talk first</em>. A short call tells us both whether there's a fit, and you'll know how we think inside twenty minutes. If it clicks, the audit is the next step.</p>
+        <p class="body">Most partnerships begin with the Satori Audit: a focused read on your revenue, your positioning, and the money slipping away to the platforms. But <em>we like to talk first</em>.</p>
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <p class="step-title">Intro call.</p>
+            <p class="step-sub">Twenty minutes, no pitch.</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <p class="step-title">The Audit.</p>
+            <p class="step-sub">An honest read and a plan you can use.</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <p class="step-title">The partnership.</p>
+            <p class="step-sub">Monthly, focused, yours.</p>
+          </li>
+        </ol>
         <div class="audit-cta">
           <a href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP" class="btn btn--light">Book an intro call</a>
         </div>
-        <p class="audit-note">The audit is $3,500. If we keep going, the work continues as a monthly partnership, and the audit fee comes off your first month.</p>
+        <p class="audit-note">The audit is $3,500, credited toward your first month if we keep going.</p>
       </div>
     </section>
 
