@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Satori: A hospitality marketing agency for independent hotels</title>
+  <meta name="description" content="Satori is a hospitality marketing agency for independent boutique hotels. Pricing and direct bookings, brand, website, social, photography and paid, starting with your margin." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B4B8C'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-weight='600' text-anchor='middle' fill='%23F6F1E7'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1F1A15;
+      --ink-2: #2A231C;
+      --cream: #F3ECDD;
+      --paper: #FBF7EE;
+      --soft: #574A3D;
+      --mute: #9A8F7E;
+      --navy: #2B4B8C;
+      --navy-tint: #AEC0E6;
+      --terracotta: #B8603F;
+      --line: #E2D6BF;
+      --line-dark: rgba(243, 236, 221, 0.16);
+      --maxw: 1280px;
+      --pad: clamp(20px, 4vw, 56px);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink-2);
+      font-family: "Inter", system-ui, sans-serif; font-size: clamp(1rem, .97rem + .17vw, 1.08rem);
+      line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+    }
+    h1, h2, h3, .serif {
+      font-family: "Fraunces", Georgia, serif; font-weight: 400; margin: 0;
+      font-optical-sizing: auto; font-variation-settings: "SOFT" 40; letter-spacing: -0.02em; text-wrap: balance;
+    }
+    p { margin: 0; text-wrap: pretty; }
+    a { color: inherit; }
+    em { font-style: italic; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    .label {
+      font-size: 11px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase;
+    }
+    .film { filter: saturate(.78) contrast(1.04) sepia(.12) brightness(.96); }
+
+    /* Header */
+    .top {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10; color: var(--cream);
+    }
+    .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 84px; }
+    .mark { font-family: "Fraunces", serif; font-style: italic; font-weight: 500; font-size: 30px; text-decoration: none; letter-spacing: -.01em; }
+    .mark small { font-family: "Inter", sans-serif; font-style: normal; font-size: 10px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; margin-left: 12px; opacity: .7; vertical-align: middle; }
+    .nav { display: flex; gap: 34px; align-items: center; }
+    .nav a { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; opacity: .85; }
+    .nav a:hover { opacity: 1; }
+    .nav .cta { opacity: 1; border: 1px solid rgba(243,236,221,.55); border-radius: 999px; padding: 11px 20px; }
+    .nav .cta:hover { background: var(--cream); color: var(--ink); }
+
+    /* Hero */
+    .hero { position: relative; min-height: 100svh; color: var(--cream); display: flex; align-items: flex-end; overflow: hidden; background: var(--ink); }
+    .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(31,26,21,.55) 0%, rgba(31,26,21,.15) 30%, rgba(31,26,21,.35) 60%, rgba(31,26,21,.88) 100%);
+    }
+    .hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(48px, 9vh, 104px); padding-top: 140px; }
+    .hero .label { color: var(--navy-tint); margin-bottom: 26px; display: block; }
+    .hero h1 { font-size: clamp(2.6rem, 1.4rem + 5.4vw, 6.4rem); line-height: .98; max-width: 14ch; font-weight: 300; }
+    .hero h1 em { font-weight: 300; color: #E9D9BC; }
+    .hero-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
+    .hero-foot p { max-width: 46ch; color: rgba(243,236,221,.86); font-size: clamp(1.02rem, .98rem + .25vw, 1.18rem); }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 500; font-size: 15px;
+      letter-spacing: .02em; padding: 16px 28px; border-radius: 999px; background: var(--cream); color: var(--ink);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); background: #fff; }
+    .btn--ghost { background: transparent; color: inherit; border: 1px solid currentColor; }
+    .btn--ghost:hover { background: rgba(255,255,255,.08); }
+    .btn--navy { background: var(--navy); color: var(--cream); }
+    .btn--navy:hover { background: #223C71; }
+    .arrow { font-family: "Fraunces", serif; font-size: 18px; line-height: 1; }
+
+    /* Ticker */
+    .ticker { background: var(--ink); color: var(--cream); border-top: 1px solid var(--line-dark); overflow: hidden; }
+    .ticker-track { display: flex; gap: 0; white-space: nowrap; animation: slide 46s linear infinite; width: max-content; }
+    .ticker span { font-family: "Fraunces", serif; font-style: italic; font-weight: 300; font-size: clamp(1.4rem, 1rem + 1.6vw, 2.4rem); padding: 22px 0; }
+    .ticker span::after { content: "·"; font-style: normal; color: var(--terracotta); margin: 0 .8em; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+
+    /* Statement */
+    .statement { padding: clamp(96px, 14vw, 180px) 0 clamp(80px, 10vw, 140px); }
+    .statement .label { color: var(--terracotta); display: block; margin-bottom: 30px; }
+    .statement h2 { font-size: clamp(2rem, 1.2rem + 3.4vw, 4.4rem); line-height: 1.06; max-width: 20ch; font-weight: 300; }
+    .statement h2 em { color: var(--navy); }
+    .statement-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 64px; padding-top: 34px; border-top: 1px solid var(--line); max-width: 920px; margin-left: auto; }
+    .statement-cols p { color: var(--soft); }
+
+    /* Services */
+    .services { background: var(--cream); padding: clamp(84px, 11vw, 150px) 0; border-top: 1px solid var(--line); }
+    .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
+    .sec-head .label { color: var(--navy); display: block; margin-bottom: 18px; }
+    .sec-head h2 { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.6rem); line-height: 1.04; max-width: 16ch; }
+    .sec-head p { max-width: 40ch; color: var(--soft); }
+    .svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .svc li { padding: 34px 32px 40px 0; border-bottom: 1px solid var(--line); }
+    .svc li:not(:nth-child(3n)) { border-right: 1px solid var(--line); }
+    .svc li:not(:nth-child(3n+1)) { padding-left: 32px; }
+    .svc .n { font-family: "Fraunces", serif; font-style: italic; color: var(--terracotta); font-size: 15px; }
+    .svc h3 { font-size: clamp(1.4rem, 1.2rem + .7vw, 1.85rem); margin: 18px 0 12px; line-height: 1.12; }
+    .svc p { color: var(--soft); font-size: .98rem; }
+
+    /* Margin band */
+    .margin { background: var(--ink); color: var(--cream); padding: clamp(90px, 12vw, 160px) 0; position: relative; overflow: hidden; }
+    .margin-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+    .margin .label { color: var(--navy-tint); display: block; margin-bottom: 26px; }
+    .margin h2 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.9rem); line-height: 1.05; font-weight: 300; }
+    .margin h2 em { color: #E9D9BC; }
+    .margin p.body { margin-top: 30px; color: rgba(243,236,221,.78); max-width: 46ch; }
+    .stat { border-left: 1px solid var(--line-dark); padding-left: clamp(24px, 3vw, 48px); }
+    .stat .big { font-family: "Fraunces", serif; font-weight: 300; font-size: clamp(4rem, 2.6rem + 6vw, 8.6rem); line-height: .9; letter-spacing: -.04em; color: var(--cream); }
+    .stat .cap { margin-top: 16px; color: rgba(243,236,221,.7); max-width: 32ch; }
+    .stat .big2 { font-family: "Fraunces", serif; font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.5rem); margin-top: 40px; color: #E9D9BC; font-style: italic; font-weight: 300; }
+
+    /* Work */
+    .work { padding: clamp(84px, 11vw, 150px) 0; }
+    .work .sec-head .label { color: var(--terracotta); }
+    .tiles { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(18px, 2.4vw, 32px); }
+    .tile { position: relative; overflow: hidden; border-radius: 4px; background: var(--ink); color: var(--cream); text-decoration: none; min-height: 560px; display: flex; align-items: flex-end; }
+    .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.16,1,.3,1); }
+    .tile:hover img { transform: scale(1.035); }
+    .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31,26,21,0) 40%, rgba(31,26,21,.86) 100%); }
+    .tile-body { position: relative; z-index: 2; padding: clamp(24px, 3vw, 40px); }
+    .tile .label { color: var(--navy-tint); display: block; margin-bottom: 14px; }
+    .tile h3 { font-size: clamp(1.6rem, 1.2rem + 1.3vw, 2.5rem); line-height: 1.08; max-width: 18ch; font-weight: 300; }
+    .tile p { margin-top: 14px; color: rgba(243,236,221,.8); max-width: 44ch; font-size: .98rem; }
+    .tile--tall { grid-row: span 2; min-height: 760px; }
+    .tile-stack { display: grid; gap: clamp(18px, 2.4vw, 32px); }
+    .tile--note { background: var(--cream); color: var(--ink-2); border: 1px solid var(--line); min-height: auto; padding: clamp(28px, 3vw, 44px); align-items: stretch; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .tile--note::after { display: none; }
+    .tile--note h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem); }
+    .tile--note p { color: var(--soft); margin-top: 14px; }
+
+    /* Hire vs team */
+    .hire { background: var(--cream); border-top: 1px solid var(--line); padding: clamp(84px, 11vw, 150px) 0; }
+    .hire-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--paper); }
+    .hire-col { padding: clamp(28px, 3.4vw, 52px); }
+    .hire-col + .hire-col { border-left: 1px solid var(--line); background: var(--ink); color: var(--cream); }
+    .hire-col h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem); margin: 14px 0 24px; }
+    .hire-col .label { color: var(--mute); }
+    .hire-col + .hire-col .label { color: var(--navy-tint); }
+    .hire-col ul { list-style: none; margin: 0; padding: 0; }
+    .hire-col li { padding: 13px 0 13px 26px; border-top: 1px solid var(--line); position: relative; color: var(--soft); }
+    .hire-col + .hire-col li { border-top-color: var(--line-dark); color: rgba(243,236,221,.84); }
+    .hire-col li::before { content: ""; position: absolute; left: 0; top: 25px; width: 10px; height: 1px; background: var(--mute); }
+    .hire-col + .hire-col li::before { background: #E9D9BC; }
+
+    /* Process */
+    .process { padding: clamp(84px, 11vw, 150px) 0; }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 48px); }
+    .steps li { border-top: 1px solid var(--ink-2); padding-top: 26px; }
+    .steps .n { font-family: "Fraunces", serif; font-weight: 300; font-size: clamp(2.6rem, 2rem + 2vw, 4rem); line-height: 1; color: var(--navy); }
+    .steps h3 { font-size: clamp(1.35rem, 1.15rem + .6vw, 1.7rem); margin: 22px 0 10px; }
+    .steps p { color: var(--soft); }
+    .steps .fine { margin-top: 12px; font-family: "Fraunces", serif; font-style: italic; color: var(--terracotta); font-size: .98rem; }
+
+    /* Founder */
+    .founder { border-top: 1px solid var(--line); }
+    .founder-grid { display: grid; grid-template-columns: 1fr 1.1fr; min-height: 640px; }
+    .founder-img { position: relative; overflow: hidden; background: var(--ink); }
+    .founder-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .founder-body { padding: clamp(56px, 8vw, 120px) var(--pad); display: flex; flex-direction: column; justify-content: center; max-width: 680px; }
+    .founder-body .label { color: var(--navy); margin-bottom: 26px; display: block; }
+    .founder-body h2 { font-size: clamp(1.9rem, 1.3rem + 2.2vw, 3.2rem); line-height: 1.08; font-weight: 300; }
+    .founder-body h2 em { color: var(--navy); }
+    .founder-body p { margin-top: 24px; color: var(--soft); }
+
+    /* Footer */
+    footer { background: var(--ink); color: var(--cream); padding: clamp(90px, 12vw, 160px) 0 44px; }
+    .foot-cta h2 { font-size: clamp(2.4rem, 1.4rem + 4.4vw, 5.6rem); line-height: 1; font-weight: 300; max-width: 15ch; }
+    .foot-cta h2 em { color: #E9D9BC; }
+    .foot-cta .btns { margin-top: 44px; }
+    .foot-cta .note { font-family: "Fraunces", serif; font-style: italic; color: rgba(243,236,221,.6); }
+    .foot-meta { margin-top: clamp(72px, 9vw, 120px); padding-top: 28px; border-top: 1px solid var(--line-dark); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 14px; color: rgba(243,236,221,.6); }
+    .foot-meta a { text-decoration: none; color: var(--cream); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.1s cubic-bezier(.16,1,.3,1), transform 1.1s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .ticker-track { animation: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .nav a:not(.cta) { display: none; }
+      .svc { grid-template-columns: 1fr 1fr; }
+      .svc li { padding: 30px 24px 34px 0 !important; border-right: 0 !important; }
+      .svc li:nth-child(2n) { padding-left: 24px !important; border-left: 1px solid var(--line); }
+      .margin-grid, .founder-grid { grid-template-columns: 1fr; }
+      .stat { border-left: 0; border-top: 1px solid var(--line-dark); padding: 36px 0 0; }
+      .tiles { grid-template-columns: 1fr; }
+      .tile--tall { grid-row: auto; min-height: 520px; }
+      .tile { min-height: 440px; }
+      .founder-img { min-height: 420px; }
+      .statement-cols { grid-template-columns: 1fr; gap: 22px; }
+    }
+    @media (max-width: 640px) {
+      .top-inner { min-height: 72px; }
+      .mark { font-size: 26px; }
+      .mark small { display: none; }
+      .nav .cta { padding: 10px 16px; font-size: 11px; }
+      .hero-foot { margin-top: 30px; gap: 28px; }
+      .btns { width: 100%; }
+      .btn { width: 100%; justify-content: center; }
+      .svc { grid-template-columns: 1fr; }
+      .svc li, .svc li:nth-child(2n) { padding: 28px 0 30px !important; border-left: 0 !important; }
+      .hire-grid { grid-template-columns: 1fr; }
+      .hire-col + .hire-col { border-left: 0; border-top: 1px solid var(--line); }
+      .steps { grid-template-columns: 1fr; gap: 36px; }
+      .tile, .tile--tall { min-height: 420px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a href="/" class="mark" aria-label="Satori home">Satori<small>for hotels</small></a>
+      <nav class="nav" aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">How we work</a>
+        <a href="#about">About</a>
+        <a class="cta" href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP">Start a conversation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <img class="film" src="/assets/img/hero.jpg" alt="An independent hotel at golden hour" fetchpriority="high" />
+      <div class="wrap hero-inner">
+        <span class="label">Hospitality marketing agency · Toronto</span>
+        <h1>Marketing for independent hotels, <em>starting with the margin.</em></h1>
+        <div class="hero-foot">
+          <p>Pricing and direct bookings, brand, website, social, photography and paid. One small team that takes the whole engine off your plate, built for owner-run boutique properties.</p>
+          <div class="btns">
+            <a class="btn" href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP">Book an intro call <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="#services">See what we do</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Direct bookings</span><span>Revenue and pricing</span><span>Brand and positioning</span><span>Websites</span><span>Social and content</span><span>Photography and film</span><span>Paid media</span><span>Email</span>
+        <span>Direct bookings</span><span>Revenue and pricing</span><span>Brand and positioning</span><span>Websites</span><span>Social and content</span><span>Photography and film</span><span>Paid media</span><span>Email</span>
+      </div>
+    </div>
+
+    <section class="statement">
+      <div class="wrap reveal">
+        <span class="label">The gap</span>
+        <h2>Your guests already love you. Your website, your feed and your booking engine <em>should say so.</em></h2>
+        <div class="statement-cols">
+          <p>The best independent hotels have glowing reviews and a product people cross the province for. Then a guest finds them online, and the site is ten years old, the feed went quiet last summer, and the cheapest rate is on someone else's platform.</p>
+          <p>Satori closes that gap. We make the way you show up online as good as the stay itself, and we make sure the booking that follows comes to you directly, at the rate you deserve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="label">What we do</span>
+            <h2>Everything marketing, under one roof.</h2>
+          </div>
+          <p>Hire us for one piece or the whole engine. Most owners start with the audit and stay for everything.</p>
+        </div>
+        <ul class="svc reveal">
+          <li><span class="n">01</span><h3>Revenue and direct bookings</h3><p>Rate strategy, rate parity, booking engine order and the direct-booking advantage that keeps the OTAs as a side door, not the front one.</p></li>
+          <li><span class="n">02</span><h3>Brand and positioning</h3><p>A clear point of view on who you are for and why they should come. Story, naming, voice and the guest you want more of.</p></li>
+          <li><span class="n">03</span><h3>Website and booking path</h3><p>A site that feels like the property and books like a machine. Fast, beautiful, and three taps from room to reservation.</p></li>
+          <li><span class="n">04</span><h3>Social and content</h3><p>A feed that looks like the stay. Planned, shot, written and posted on a rhythm, so you never have to think about it.</p></li>
+          <li><span class="n">05</span><h3>Photography and film</h3><p>Editorial photography and short films made by people with an eye for hotels, so your best rooms finally look like your best rooms.</p></li>
+          <li><span class="n">06</span><h3>Paid media and email</h3><p>Paid strategy, remarketing and a guest list that keeps working between stays. Budgets sized to your season, not ours.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="margin">
+      <div class="wrap margin-grid reveal">
+        <div>
+          <span class="label">The difference</span>
+          <h2>Most agencies start with your logo. <em>We start with the leak.</em></h2>
+          <p class="body">Every engagement begins with the numbers: what the booking platforms take, where your rates are leaving money on the table, and what the property could actually earn. Then we build the brand, the site and the content to go and get it. Pretty is the deliverable. Profit is the point.</p>
+        </div>
+        <div class="stat">
+          <p class="big">15–25%</p>
+          <p class="cap">The cut booking platforms take from every reservation they send you.</p>
+          <p class="big2">For a property your size, often $60,000 to $100,000 a year.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="label">Selected work</span>
+            <h2>Already working.</h2>
+          </div>
+          <p>We keep our client list small and private. Two engagements, described without names. Full case studies on request.</p>
+        </div>
+        <div class="tiles reveal">
+          <a class="tile tile--tall" href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP">
+            <img class="film" src="/assets/img/water.jpg" alt="A boutique waterfront property above open water" loading="lazy" />
+            <div class="tile-body">
+              <span class="label">Ontario · Lakeside resort</span>
+              <h3>From OTA-dependent to selling direct, at premium rates.</h3>
+              <p>Repricing, a new direct booking path, social and paid, and a signature retreat program built around the setting.</p>
+            </div>
+          </a>
+          <div class="tile-stack">
+            <a class="tile" href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP">
+              <img class="film" src="/assets/img/mountain.jpg" alt="A small independent hotel set against high ground" loading="lazy" />
+              <div class="tile-body">
+                <span class="label">Mountain retreat</span>
+                <h3>Repositioned and repriced to its true worth.</h3>
+              </div>
+            </a>
+            <div class="tile tile--note">
+              <div>
+                <span class="label" style="color: var(--terracotta);">Your property, next</span>
+                <h3>We take on a handful of hotels a year.</h3>
+                <p>Independent, owner-run, ten to forty rooms, with a stay worth telling people about.</p>
+              </div>
+              <div class="btns"><a class="btn btn--navy" href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP">Book an intro call <span class="arrow">→</span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hire">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="label" style="color: var(--navy);">Thinking of hiring?</span>
+            <h2>One marketing hire, or a whole team.</h2>
+          </div>
+          <p>For about what a single marketing manager costs once salary and benefits are in, you get the full team, from the first month.</p>
+        </div>
+        <div class="hire-grid reveal">
+          <div class="hire-col">
+            <span class="label">A marketing hire</span>
+            <h3>One person, learning on your time.</h3>
+            <ul>
+              <li>Months to recruit, then months to ramp up</li>
+              <li>One set of skills, usually social or sales</li>
+              <li>Pricing and revenue left to you</li>
+              <li>Photography, web and paid still outsourced</li>
+            </ul>
+          </div>
+          <div class="hire-col">
+            <span class="label">Satori</span>
+            <h3>A full team, from month one.</h3>
+            <ul>
+              <li>Strategy, revenue, brand, web, social, photo and paid</li>
+              <li>A senior lead who has done this for the biggest brands in travel</li>
+              <li>Every move measured against your margin</li>
+              <li>No recruiting, no turnover, no training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <span class="label" style="color: var(--terracotta);">How we work</span>
+            <h2>Three steps, no surprises.</h2>
+          </div>
+        </div>
+        <ol class="steps reveal">
+          <li><span class="n">01</span><h3>Intro call</h3><p>Twenty minutes to hear about the property and where you want to take it. No deck, no pitch.</p></li>
+          <li><span class="n">02</span><h3>The audit</h3><p>A working session that ends in a plan, and two numbers: what the platforms take each year, and what the property could earn.</p><p class="fine">$3,500, credited to your first month if we keep going.</p></li>
+          <li><span class="n">03</span><h3>The partnership</h3><p>A monthly retainer that runs your marketing end to end, on a four-quarter rhythm, with first results live by day sixty.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="founder" id="about">
+      <div class="founder-grid">
+        <div class="founder-img"><img class="film" src="/assets/img/terrace.jpg" alt="A quiet terrace looking out over high ground" loading="lazy" /></div>
+        <div class="founder-body reveal">
+          <span class="label">About Satori</span>
+          <h2>Founder-led, small on purpose, <em>and building toward hotels of our own.</em></h2>
+          <p>Satori is led by a principal who has spent her career in hospitality, working with the world's biggest travel and hotel brands on how they drive revenue. Satori brings that playbook to the independent properties that deserve it most, with a small team of designers, content creators and filmmakers.</p>
+          <p>The longer arc is ownership. We are building toward boutique properties of our own, which means we advise like owners, not vendors.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-cta reveal">
+        <h2>Let's make your hotel look as good <em>as it feels.</em></h2>
+        <div class="btns">
+          <a class="btn" href="https://calendar.google.com/appointments/schedules/AcZssZ0ndSvzWlwPmbroOjTRY0KEPjkaPlGboBNWOEW8EKug4U16iPwtLyzB0hE8N6vVx075w9qA5UIP">Book an intro call <span class="arrow">→</span></a>
+          <span class="note">Twenty minutes, no pitch.</span>
+        </div>
+      </div>
+      <div class="foot-meta">
+        <a href="mailto:hello@satori-destinations.com">hello@satori-destinations.com</a>
+        <a href="https://www.instagram.com/satori_for_hotels/">@satori_for_hotels</a>
+        <span>© 2026 Satori · Est. 2025 · Toronto</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
+</body>
+</html>
