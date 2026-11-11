@@ -1,13 +1,13 @@
 # Satori
 
-> Satori is a hospitality marketing agency for independent and boutique hotels, based in Toronto, Canada. It runs the full marketing engine for owner-run hotels, inns and resorts: pricing and direct bookings, brand and positioning, website and booking path, social media and content, photography and film, and paid media and email. Every engagement starts with the hotel's margin: what booking platforms (OTAs) take each year and what the property could earn.
+> Satori is a hospitality marketing agency for independent and boutique hotels, based in Toronto and New York. It runs the full marketing engine for owner-run hotels, inns and resorts: pricing and direct bookings, brand and positioning, website and booking path, social media and content, photography and film, and paid media and email. Every engagement starts with the hotel's margin: what booking platforms (OTAs) take each year and what the property could earn.
 
 ## Key facts
 
 - Name: Satori (also "Satori for Hotels")
 - Type: Hotel and hospitality marketing agency
 - Founded: 2025
-- Based in: Toronto, Ontario, Canada
+- Based in: Toronto, Ontario, Canada and New York, USA
 - Serves: Independent and boutique hotels, inns and resorts in Canada, the United States and the Caribbean
 - Ideal client: Independent, owner-run property with roughly 10 to 40 rooms and a strong sense of place
 - Not a fit for: Hotel chains, management-company properties, discount-led strategies
